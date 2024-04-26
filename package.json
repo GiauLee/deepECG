@@ -1,0 +1,34 @@
+{
+  "name": "ecg1",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.23.1",
+    "@react-navigation/bottom-tabs": "^6.5.20",
+    "@react-navigation/stack": "^6.3.29",
+    "expo": "~50.0.14",
+    "expo-barcode-scanner": "^12.9.3",
+    "expo-camera": "^14.1.3",
+    "expo-dev-client": "^3.3.11",
+    "expo-document-picker": "~11.10.1",
+    "expo-image-picker": "~14.7.1",
+    "expo-status-bar": "~1.11.1",
+    "firebase": "^10.11.1",
+    "react": "18.2.0",
+    "react-native": "0.73.6",
+    "react-native-paper": "^5.12.3",
+    "react-native-qrcode-svg": "^6.3.0",
+    "react-native-storage": "^1.0.1",
+    "react-native-gesture-handler": "~2.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
