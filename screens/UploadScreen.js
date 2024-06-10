@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db, storage, collection, addDoc, query, where, getDocs, ref, uploadBytesResumable, getDownloadURL, createUserWithEmailAndPassword } from '../firebase';
-// import RNDateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import { FontAwesome } from '@expo/vector-icons';
 
 const UploadScreen = () => {
@@ -71,7 +71,7 @@ const UploadScreen = () => {
   };
 
   const generateRandomEmailPassword = async (number) => {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; //chuỗi các ký tự
+    const chars = 'abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789'; //chuỗi các ký tự
     let result = ""; // biến giữ kết quả
     for (let i = 0; i < 7; i++) {
       const randomChar = chars[Math.floor(Math.random() * chars.length)]; // Chọn một ký tự ngẫu nhiên từ chuỗi

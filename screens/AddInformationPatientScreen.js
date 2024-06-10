@@ -62,7 +62,7 @@ const AddInformationPatientScreen = () => {
         console.log('result: ', result);
         
         if (!result.canceled) {
-            setIsLoading(true);
+            // setIsLoading(true);
             // Thêm mỗi file vào formData
             const formData = new FormData();
             for (const file of result.assets) {
@@ -84,7 +84,7 @@ const AddInformationPatientScreen = () => {
                 },
             };
 
-            const response = await fetch('http://192.168.1.159:5000/upload', options);
+            const response = await fetch('http://192.168.42.159:5000/upload', options);
 
             if (response.ok) {
                 console.log('Phản hồi thành công: ', response);
@@ -94,8 +94,9 @@ const AddInformationPatientScreen = () => {
                 setImageResult(imageSrc);
                 setPrediction(data.class);
             }
+            setIsLoading(false);
         }
-        setIsLoading(false);
+        // setIsLoading(false);
     };
 
     const UploadDocumentPatient = async () => {

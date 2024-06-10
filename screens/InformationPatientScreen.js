@@ -34,22 +34,68 @@ const InformationPatientScreen = () => {
         setIsLoading(true);
         const dataInfo = [];
         try {
-            const userPatient = query(collection(db, 'patient_data'), where('id', '==', value)); // xác định điều kiện truy vấn
+            // const userPatient = query(collection(db, 'patient_data'), where('id', '==', value)); // xác định điều kiện truy vấn
+            // const infoPatient = query(collection(db, 'patient_records'), where('idPatient', '==', value));
+
+            // const querySnapshotUser = await getDocs(userPatient); //lấy dữ liệu
+            // const querySnapshotPatient = await getDocs(infoPatient);
+            // // const querySnapshotRecord = await getDocs(record);
+
+            // querySnapshotUser.forEach((doc) => {
+            //   console.log(doc.id, "=>", doc.data()); // show dữ liệu ra ngoài: id chính => data trong id đó
+            // //   patientData = doc.data();
+            //   setName(doc.data().name); // lấy dữ liệu name gán vào setName
+            //   setEmail(doc.data().email); // lấy dữ liệu email gán vào setEmail
+            //   setDate(doc.data().date);
+            //   setAddress(doc.data().address);
+            // });
+
+            const dataPatient = query(collection(db, 'patient_data'), where('id', '==', value)); // xác định điều kiện truy vấn
+            const userPatient = query(collection(db, 'patient_users'), where('id', '==', value));
             const infoPatient = query(collection(db, 'patient_records'), where('idPatient', '==', value));
-            // const record = query(collection(db, 'patient_records'), where('idPatient', '==', value));
 
-            const querySnapshotUser = await getDocs(userPatient); //lấy dữ liệu
+            const querySnapshotDate = await getDocs(dataPatient); //lấy dữ liệu
+            const querySnapshotUser = await getDocs(userPatient);
             const querySnapshotPatient = await getDocs(infoPatient);
-            // const querySnapshotRecord = await getDocs(record);
 
-            querySnapshotUser.forEach((doc) => {
+            querySnapshotDate.forEach((doc) => {
               console.log(doc.id, "=>", doc.data()); // show dữ liệu ra ngoài: id chính => data trong id đó
-            //   patientData = doc.data();
+
               setName(doc.data().name); // lấy dữ liệu name gán vào setName
-              setEmail(doc.data().email); // lấy dữ liệu email gán vào setEmail
               setDate(doc.data().date);
               setAddress(doc.data().address);
             });
+            querySnapshotUser.forEach((doc) => {
+                setEmail(doc.data().email);
+            })
+
+            // if (querySnapshotPatient.empty) {
+            //     console.log('chưa tìm thấy thông tin hồ sơ của bệnh nhân!');
+            //     setOff(true);
+            // } else {
+            //     querySnapshotPatient.forEach((docInfo) => {
+            //         console.log(docInfo.id, "=>", docInfo.data()); // show dữ liệu ra ngoài: id chính => data trong id đó
+                    
+            //         const timeData = docInfo.data().time;
+            //         const seconds = timeData.seconds;
+            //         const dateObject = new Date(seconds * 1000); // Chuyển đổi thành đối tượng Date
+
+            //         dataInfo.push({
+            //             id: docInfo.id,
+            //             time: dateObject,
+            //             idPatient: docInfo.data().idPatient,
+            //             imagePathECG: docInfo.data().imagePathECG,
+            //             imagePathNumericPlot: docInfo.data().imagePathNumericPlot,
+            //             result: docInfo.data().result,
+            //         });
+
+            //     });
+
+            //     setData(dataInfo);
+            //     console.log('data:', data);
+            //     setOff(false);
+            // }
+
             if (querySnapshotPatient.empty) {
                 console.log('chưa tìm thấy thông tin hồ sơ của bệnh nhân!');
                 setOff(true);

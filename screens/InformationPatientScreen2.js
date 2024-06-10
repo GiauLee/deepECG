@@ -53,6 +53,7 @@ const InformationPatientScreen2 = () => {
             querySnapshotUser.forEach((doc) => {
                 setEmail(doc.data().email);
             })
+            
             if (querySnapshotPatient.empty) {
                 console.log('chưa tìm thấy thông tin hồ sơ của bệnh nhân!');
                 setOff(true);

@@ -57,9 +57,9 @@ const PatientUserScreen = () => {
           <View style={styles.header}>
             <View style={{flex: 1, maxHeight: 100}}>
               <Text style={styles.text}>Tài khoản</Text>
-              <Text>{email}</Text>
+              <Text style={{fontFamily: 'Roboto'}}>{email}</Text>
               <Text style={styles.text}>Mật khẩu</Text>
-              <Text>{password}</Text>
+              <Text style={{fontFamily: 'Roboto'}}>{password}</Text>
             </View>
 
             <View style={{flex: 1}}>
